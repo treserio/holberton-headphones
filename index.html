@@ -83,5 +83,52 @@
                 </div>
             </div>
         </div>
+        <div id="contact-us" class="cu-part">
+            <h1>Contact Us</h1>
+            <form action="#" method="post">
+                <div class="cu-input">
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                        pattern="[A-Za-zÀ-ž\s]{3,}"
+                        maxlength="52"
+                        autocomplete="name"
+                        accesskey="n"
+                        required="true"
+                    >
+                </div>
+                <div class="cu-input">
+                    <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    maxlength="52"
+                    autocomplete="email"
+                    accesskey="e"
+                    required="true"
+                >
+                </div>
+                <div class="cu-input">
+                    <input
+                        type="text"
+                        name="your-comment"
+                        id="your-comment"
+                        placeholder="Your Message"
+                        minlength="10"
+                        maxlength="600"
+                        accesskey="c"
+                        required="true"
+                    ></textarea>
+                </div>
+                <button type="submit">CALL TO ACTION</button>
+            </form>
+        </div>
+        <footer>
+            stuff here
+        </footer>
     </body>
 </html>
