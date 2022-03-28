@@ -11,12 +11,8 @@
     /* colored things */
     --txt-on-dark: var(--c-white);
     --txt-on-white: var(--c-black);
-    --lnk-hover-color: var(--c-red);
-    --btn-color: var(--c-red);
 
     /* font types */
-    --font-fam-base: 'Source Sans Pro';
-    --font-normal: normal;
     --font-bold: bold;
     --font-extra: 46px;
 
@@ -25,19 +21,14 @@
     --hdr-top: 28px;
     --hdr-max-width: 1000px;
 
-    /* logo */
-    --logo-width: 161px;
-    --logo-ht: 32px;
-    --logo-margin: 0 0 0 12%;
+    /* image urls */
     --logo-url: url(../images/logo_headphones.png);
-
-    /* nav-bar */
-    --nb-width: 255px;
-    --nb-font-size: 12px;
+    --mb-background-url: url(../images/headphones_hero_1.jpg);
+    --or-background-url: url(../images/headphones_hero_2.jpg);
+    --or-pentagon-url: url(../images/pentagon.png);
 
     /* main-part */
     --mp-ht: 800px;
-    --mb-background-url: url(../images/headphones_hero_1.jpg);
 
     /* main-part button */
     --mp-btn-width: 162px;
@@ -48,17 +39,19 @@
 
     /* main-text */
     --mt-width: 638px;
-    --mt-ht: 313px;
+    --mt-ht: 428px;
     --mt-margin: 372px 0 0 0;
+    --mt-mobile-margin: 327px 9px 0 9px;
 
     /* main-text p */
     --mt-p-margin: 0 0 0 0;
 
     /* our-results */
     --or-ht: 650px;
-    --or-background-url: url(../images/headphones_hero_2.jpg);
-    --or-pentagon-url: url(../images/pentagon.png);
+    --or-bg-width: 1400px;
+    --or-bg-ht: 800px;
 }
+
 
 /* =============== general =============== */
 
@@ -83,7 +76,8 @@ body {
     flex-direction: column;
 
     color: var(--txt-on-dark);
-    font-family: var(--font-fam-base);
+    font-family: 'Source Sans Pro';
+    min-width: 247px;
 }
 
 /* button */
@@ -91,12 +85,13 @@ button {
     width: var(--mp-btn-width);
     height: var(--mp-btn-ht);
     margin: var(--mp-btn-margin);
+    align-items: center;
 
     font-size: 14px;
     font-weight: bold;
 
     color: var(--txt-on-dark);
-    background: var(--btn-color);
+    background: var(--c-red);
 
     border-radius: 22px;
     border: none;
@@ -111,7 +106,6 @@ button:hover {
 [class^="nav-bar-"] {
     display: flex;
     width: 100%;
-    max-width: var(--hdr-max-width);
     height: var(--hdr-ht);
 
     flex-direction: row;
@@ -130,8 +124,9 @@ button:hover {
 
 /* logo */
 .logo {
-    width: var(--logo-width);
-    height: var(--logo-ht);
+    width: 161px;
+    height: 32px;
+    margin: 0 1% 0 13%;
 
     background-image: var(--logo-url);
     background-size: contain;
@@ -141,11 +136,12 @@ button:hover {
 /* nav-links */
 .nav-links {
     display: flex;
-    width: var(--nb-width);
+    width: 255px;
+    margin: 0 13% 0 1%;
     justify-content: space-between;
 
     font-weight: var(--font-bold);
-    font-size: var(--nb-font-size);
+    font-size: 12px;
 }
 
 /* nav-links */
@@ -153,6 +149,7 @@ button:hover {
     display: flex;
     width: 130px;
     height: 32px;
+    margin: 0 13% 0 1%;
     justify-content: space-between;
 
     font-size: 30px;
@@ -164,7 +161,7 @@ button:hover {
 }
 
 .nav-link:hover {
-    color: var(--lnk-hover-color);
+    color: var(--c-red);
 }
 
 /* =============== main-part =============== */
@@ -182,6 +179,21 @@ button:hover {
     background-repeat: no-repeat;
     background-position: center;
     background-color: #071629;
+}
+
+/* phone-menu */
+.phone-menu {
+    font-family: 'holberton_school-icon' !important;
+    font-size: 32px;
+
+    position: absolute;
+    top: 28px;
+    left: 21px;
+    display: none;
+}
+
+.phone-menu:before {
+    content: "\e911";
 }
 
 /* main-part text */
@@ -207,7 +219,7 @@ button:hover {
 
 .main-text p {
     margin: var(--mt-p-margin);
-    font-style: var(--font-normal);
+    font-style: normal;
 }
 
 /* =============== what-we-do =============== */
@@ -314,13 +326,15 @@ button:hover {
     background-image: var(--or-background-url);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: var(--or-bg-width) var(--or-bg-ht);
     background-color: #071629;
 }
 
 @media only screen and (min-width:481px) and (max-width:1016px) {
     .or-part {
-        height: 897px;
-        background-size: 1835.75px 1049px;
+        /* height: 897px; */
+        height: var(--or-ht) * 1.38;
+        background-size: calc(var(--or-bg-width) * 1.38) calc(var(--or-bg-ht) * 1.38);
     }
 }
 
@@ -460,9 +474,87 @@ footer {
     opacity: 0.35;
 }
 
-/* for later */
-/* @media (max-width: 480px) {
-    .nav-bar {
+/* =============== mobile version =============== */
+@media (max-width: 480px) {
+
+    :root {
+        --mt-margin: 327px 0 0 0;
+        --mobile-padding: 0 9px 0 9px;
+    }
+    /* =============== mobile general =============== */
+
+    [class^="nav-bar-"] {
+        justify-content: center;
+    }
+
+    .column-grp {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* =============== mobile header =============== */
+    .nav-links {
         display: none;
     }
-} */
+
+    /* =============== mobile main-part =============== */
+    .phone-menu {
+        display: initial;
+    }
+
+    /* =============== mobile main-part =============== */
+    .main-part {
+        background-position-x: 36%;
+        padding: var(--mobile-padding);
+    }
+
+    /* =============== mobile what-we-do =============== */
+    .wwd-part {
+        padding: var(--mobile-padding);
+    }
+
+    /* =============== mobile our-results =============== */
+    .or-part {
+        height: var(--or-ht) * 10;
+        background-size: calc(var(--or-bg-width) * 0.8) calc(var(--or-bg-ht) * 0.8);
+        background-position-y: top;
+        padding: var(--mobile-padding);
+    }
+
+    /* =============== mobile contact-us =============== */
+    .cu-part {
+        padding: var(--mobile-padding);
+    }
+
+    .cu-part form {
+        width: 90%;
+        max-width: 90%;
+    }
+
+    .cu-input {
+        width: 100%;
+    }
+
+    /* =============== mobile footer =============== */
+    footer {
+        padding: var(--mobile-padding);
+    }
+
+    footer .nav-bar-2 {
+        height: 110px;
+        margin-top: 48px;
+        flex-direction: column;
+    }
+
+    footer .logo {
+        margin: 0 0 45px 0;
+    }
+
+    .nav-links-2 {
+        margin: 0;
+    }
+
+    .copyright {
+        margin-top: 45px;
+    }
+}
