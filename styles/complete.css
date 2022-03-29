@@ -169,6 +169,26 @@ input[type="checkbox"] {
     color: var(--c-red);
 }
 
+/* phone-label */
+[class^="mobile-label-"] {
+    visibility: hidden;
+    position: absolute;
+    top: 28px;
+    left: 21px;
+
+    font-family: 'holberton_school-icon' !important;
+    font-size: 32px;
+    text-align: center;
+}
+
+.mobile-label-off:before {
+    content: "\e911";
+}
+
+.mobile-label-on:before {
+    content: "X";
+}
+
 /* =============== main-part =============== */
 
 .main-part {
@@ -184,21 +204,6 @@ input[type="checkbox"] {
     background-repeat: no-repeat;
     background-position: center;
     background-color: #071629;
-}
-
-/* phone-label */
-.mobile-label {
-    font-family: 'holberton_school-icon' !important;
-    font-size: 32px;
-
-    position: absolute;
-    top: 28px;
-    left: 21px;
-    display: none;
-}
-
-.mobile-label:before {
-    content: "\e911";
 }
 
 /* main-part text */
@@ -510,14 +515,21 @@ footer {
         align-items: center;
     }
 
-    .mobile-label {
+    [class^="mobile-label"] {
         width: 32px;
         height: 32px;
-        display: initial;
     }
 
-    input[type="checkbox"]:checked ~ .mobile-label::before {
-        content: "X";
+    .mobile-label-off {
+        visibility: visible;
+    }
+
+    input[type="checkbox"]:checked ~ .mobile-label-on {
+        visibility: visible;
+    }
+
+    input[type="checkbox"]:checked + .mobile-label-off {
+        visibility: hidden;
     }
 
     input[type="checkbox"]:checked ~ .nav-links {
