@@ -102,6 +102,11 @@ button:hover {
     opacity: 0.9;
 }
 
+/* checkboxes */
+input[type="checkbox"] {
+    display: none;
+}
+
 /* nav-bar */
 [class^="nav-bar-"] {
     display: flex;
@@ -181,8 +186,8 @@ button:hover {
     background-color: #071629;
 }
 
-/* phone-menu */
-.phone-menu {
+/* phone-label */
+.mobile-label {
     font-family: 'holberton_school-icon' !important;
     font-size: 32px;
 
@@ -192,7 +197,7 @@ button:hover {
     display: none;
 }
 
-.phone-menu:before {
+.mobile-label:before {
     content: "\e911";
 }
 
@@ -484,7 +489,8 @@ footer {
     /* =============== mobile general =============== */
 
     [class^="nav-bar-"] {
-        justify-content: center;
+        height: 110px;
+        flex-direction: column;
     }
 
     .column-grp {
@@ -493,19 +499,41 @@ footer {
     }
 
     /* =============== mobile header =============== */
-    .nav-links {
-        display: none;
+    header {
+        width: 100%;
     }
 
-    /* =============== mobile main-part =============== */
-    .phone-menu {
+    .nav-links {
+        display: none;
+        height: 65px;
+        margin: 0;
+        align-items: center;
+    }
+
+    .mobile-label {
+        width: 32px;
+        height: 32px;
         display: initial;
+    }
+
+    input[type="checkbox"]:checked ~ .mobile-label::before {
+        content: "X";
+    }
+
+    input[type="checkbox"]:checked ~ .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header .logo {
+        margin: 0;
     }
 
     /* =============== mobile main-part =============== */
     .main-part {
         background-position-x: 36%;
         padding: var(--mobile-padding);
+        margin: -138px 0 0 0;
     }
 
     /* =============== mobile what-we-do =============== */
@@ -541,9 +569,8 @@ footer {
     }
 
     footer .nav-bar-2 {
-        height: 110px;
+        justify-content: center;
         margin-top: 48px;
-        flex-direction: column;
     }
 
     footer .logo {
