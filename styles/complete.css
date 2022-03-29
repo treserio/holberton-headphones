@@ -178,7 +178,6 @@ input[type="checkbox"] {
 
     font-family: 'holberton_school-icon' !important;
     font-size: 32px;
-    text-align: center;
 }
 
 .mobile-label-off:before {
@@ -186,7 +185,7 @@ input[type="checkbox"] {
 }
 
 .mobile-label-on:before {
-    content: "X";
+    content: "\e902\e903";
 }
 
 /* =============== main-part =============== */
@@ -526,6 +525,8 @@ footer {
 
     input[type="checkbox"]:checked ~ .mobile-label-on {
         visibility: visible;
+        letter-spacing: -22px;
+        font-weight: 1000;
     }
 
     input[type="checkbox"]:checked + .mobile-label-off {
