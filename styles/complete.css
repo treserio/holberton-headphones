@@ -203,6 +203,7 @@ input[type="checkbox"] {
     background-repeat: no-repeat;
     background-position: center;
     background-color: #071629;
+    background-size: cover;
 }
 
 /* main-part text */
@@ -337,6 +338,7 @@ input[type="checkbox"] {
     background-position: center;
     background-size: var(--or-bg-width) var(--or-bg-ht);
     background-color: #071629;
+    background-size: cover;
 }
 
 @media only screen and (min-width:481px) and (max-width:1016px) {
